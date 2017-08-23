@@ -4,7 +4,7 @@
 
 ## Want to learn how to build this project?
 
-Check out the [blog post]().
+Check out the [blog post](http://mherman.org/blog/2017/08/23/building-a-restful-api-with-koa-and-postgres).
 
 ## Want to use this project?
 
