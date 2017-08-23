@@ -5,9 +5,19 @@ node_js:
   - '8'
   - '7'
 
+services:
+  - postgresql
+
+addons:
+  postgresql: '9.4'
+
 env:
   global:
     - NODE_ENV=test
+    - export DATABASE_TEST_URL=postgresql://localhost/koa_api_test
+
+before_script:
+  - psql -c 'create database koa_api_test;' -U postgres
 
 script:
   - npm run test

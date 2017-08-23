@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/mjhea0/node-koa-api.svg?branch=master)](https://travis-ci.org/mjhea0/node-koa-api)
 
-Project base...
+## Want to learn how to build this project?
+
+Check out the [blog post]().
+
+## Want to use this project?
 
 1. Fork/Clone
 1. Install dependencies - `npm install`
