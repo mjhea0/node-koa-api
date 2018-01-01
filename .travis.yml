@@ -2,11 +2,13 @@ language:
   - node_js
 
 node_js:
+  - '9'
   - '8'
   - '7'
 
 services:
   - postgresql
+  - redis-server
 
 addons:
   postgresql: '9.4'
