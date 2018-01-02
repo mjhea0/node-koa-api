@@ -7,7 +7,7 @@
 Check out the following blog posts:
 
 1. [Building a RESTful API with Koa and Postgres](http://mherman.org/blog/2017/08/23/building-a-restful-api-with-koa-and-postgres)
-1. User Authentication with Passport and Koa
+1. [User Authentication with Passport and Koa](http://mherman.org/blog/2018/01/02/user-authentication-with-passport-and-koa)
 
 ## Want to use this project?
 
