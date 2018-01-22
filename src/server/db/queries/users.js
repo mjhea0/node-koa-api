@@ -1,6 +1,12 @@
 const bcrypt = require('bcryptjs');
 const knex = require('../connection');
 
+function getSingleUser(id) {
+  return knex('users')
+  .select('*')
+  .where({ id: parseInt(id) });
+}
+
 function addUser(user) {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(user.password, salt);
@@ -13,5 +19,6 @@ function addUser(user) {
 }
 
 module.exports = {
+  getSingleUser,
   addUser,
 };

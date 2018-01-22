@@ -1,7 +1,9 @@
 const Router = require('koa-router');
 const passport = require('koa-passport');
 const fs = require('fs');
+
 const queries = require('../db/queries/users');
+const helpers = require('./_helpers');
 
 const router = new Router();
 
@@ -24,7 +26,7 @@ router.post('/auth/register', async (ctx) => {
 });
 
 router.get('/auth/login', async (ctx) => {
-  if (!ctx.isAuthenticated()) {
+  if (!helpers.ensureAuthenticated(ctx)) {
     ctx.type = 'html';
     ctx.body = fs.createReadStream('./src/server/views/login.html');
   } else {
@@ -45,7 +47,7 @@ router.post('/auth/login', async (ctx) => {
 });
 
 router.get('/auth/logout', async (ctx) => {
-  if (ctx.isAuthenticated()) {
+  if (helpers.ensureAuthenticated(ctx)) {
     ctx.logout();
     ctx.redirect('/auth/login');
   } else {
@@ -55,9 +57,18 @@ router.get('/auth/logout', async (ctx) => {
 });
 
 router.get('/auth/status', async (ctx) => {
-  if (ctx.isAuthenticated()) {
+  if (helpers.ensureAuthenticated(ctx)) {
     ctx.type = 'html';
     ctx.body = fs.createReadStream('./src/server/views/status.html');
+  } else {
+    ctx.redirect('/auth/login');
+  }
+});
+
+router.get('/auth/admin', async (ctx) => {
+  if (await helpers.ensureAdmin(ctx)) {
+    ctx.type = 'html';
+    ctx.body = fs.createReadStream('./src/server/views/admin.html');
   } else {
     ctx.redirect('/auth/login');
   }

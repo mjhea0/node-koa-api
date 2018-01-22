@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./src/server/index.js",
-    "test": "./node_modules/mocha/bin/_mocha"
+    "test": "./node_modules/mocha/bin/_mocha ./test/**/*.test.js"
   },
   "keywords": [],
   "author": "Michael Herman",
@@ -12,7 +12,8 @@
   "devDependencies": {
     "chai": "4.1.1",
     "chai-http": "^3.0.0",
-    "mocha": "3.5.0"
+    "mocha": "3.5.0",
+    "sinon": "^4.1.5"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
