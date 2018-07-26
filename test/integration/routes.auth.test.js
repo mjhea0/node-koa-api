@@ -46,6 +46,7 @@ describe('routes : auth', () => {
         password: 'herman'
       })
       .end((err, res) => {
+        should.not.exist(err);
         res.redirects[0].should.contain('/auth/status');
         done();
       });
